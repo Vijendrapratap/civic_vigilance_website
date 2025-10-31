@@ -29,7 +29,6 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-icons'],
   },
-  outputFileTracingRoot: path.resolve(__dirname, '../../'),
   typescript: {
     ignoreBuildErrors: true, // Ignore TypeScript errors for UI component libraries
   },
