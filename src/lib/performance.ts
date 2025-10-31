@@ -54,13 +54,13 @@ export function debounce<T extends (...args: unknown[]) => unknown>(
  * Request Animation Frame throttle for smooth animations
  * @param func Function to throttle
  */
-export function rafThrottle<T extends (...args: unknown[]) => unknown>(
+export function rafThrottle<T extends (...args: any[]) => any>(
   func: T
 ): (...args: Parameters<T>) => void {
   let rafId: number | null = null;
   let latestArgs: Parameters<T>;
 
-  return function (this: unknown, ...args: Parameters<T>) {
+  return function (this: any, ...args: Parameters<T>) {
     latestArgs = args;
 
     if (rafId === null) {
