@@ -8,44 +8,50 @@ const features = [
   {
     icon: Camera,
     title: "Instant Reporting",
-    description: "Report issues with photos, location, and description in seconds. Your voice matters.",
-    color: "from-cyan-500 to-blue-500",
-    bgColor: "bg-cyan-500/10",
+    description: "Document issues with precision. Upload photos, tag locations, and provide critical details in seconds.",
+    color: "text-blue-500",
+    bg: "bg-blue-50 dark:bg-blue-900/20",
+    border: "border-blue-100 dark:border-blue-800",
   },
   {
     icon: Eye,
-    title: "Real-Time Tracking",
-    description: "Track your reported issues from submission to resolution with transparent updates.",
-    color: "from-purple-500 to-pink-500",
-    bgColor: "bg-purple-500/10",
+    title: "Transparent Tracking",
+    description: "Watch your report move from submission to resolution. Complete visibility at every stage of the process.",
+    color: "text-cyan-500",
+    bg: "bg-cyan-50 dark:bg-cyan-900/20",
+    border: "border-cyan-100 dark:border-cyan-800",
   },
   {
     icon: Users,
-    title: "Community Engagement",
-    description: "Join thousands of active citizens making a difference in their communities.",
-    color: "from-green-500 to-emerald-500",
-    bgColor: "bg-green-500/10",
+    title: "Community Action",
+    description: "Amplify your voice. Join thousands of citizens working together to demand better public services.",
+    color: "text-indigo-500",
+    bg: "bg-indigo-50 dark:bg-indigo-900/20",
+    border: "border-indigo-100 dark:border-indigo-800",
   },
   {
     icon: Shield,
-    title: "Verified Actions",
-    description: "All reports are verified and prioritized based on severity and community impact.",
-    color: "from-orange-500 to-red-500",
-    bgColor: "bg-orange-500/10",
+    title: "Verified Impact",
+    description: "Reports are validated and prioritized based on severity, ensuring resources go where they are needed most.",
+    color: "text-slate-500",
+    bg: "bg-slate-50 dark:bg-slate-800/50",
+    border: "border-slate-200 dark:border-slate-700",
   },
   {
     icon: TrendingUp,
-    title: "Impact Analytics",
-    description: "View statistics and analytics on resolved issues and community impact.",
-    color: "from-indigo-500 to-blue-500",
-    bgColor: "bg-indigo-500/10",
+    title: "Data Insights",
+    description: "Visualize neighborhood trends and improvement metrics with our accessible public dashboard.",
+    color: "text-teal-500",
+    bg: "bg-teal-50 dark:bg-teal-900/20",
+    border: "border-teal-100 dark:border-teal-800",
   },
   {
     icon: Bell,
-    title: "Smart Notifications",
-    description: "Get instant alerts about issues in your area and resolution updates.",
-    color: "from-yellow-500 to-amber-500",
-    bgColor: "bg-yellow-500/10",
+    title: "Smart Alerts",
+    description: "Stay informed about issues affecting your immediate area with customizable, relevant notifications.",
+    color: "text-sky-500",
+    bg: "bg-sky-50 dark:bg-sky-900/20",
+    border: "border-sky-100 dark:border-sky-800",
   },
 ];
 
@@ -53,7 +59,7 @@ export default function FeaturesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section className="py-24 bg-slate-50 dark:bg-black/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -62,11 +68,11 @@ export default function FeaturesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="gradient-text">Powerful Features</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
+            Powerful Tools for <span className="text-blue-600 dark:text-blue-400">Civic Action</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Everything you need to report, track, and resolve societal issues in one platform
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            A comprehensive platform designed to turn individual observations into collective improvements.
           </p>
         </motion.div>
 
@@ -74,66 +80,32 @@ export default function FeaturesSection() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
-              className="relative group"
+              className="group relative"
             >
               <div
-                className={`relative h-full p-8 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-300 ${
-                  hoveredIndex === index ? "scale-105" : ""
-                }`}
+                className={`h-full p-8 rounded-2xl bg-white dark:bg-slate-900 border transition-all duration-300 shadow-sm hover:shadow-md ${hoveredIndex === index ? "border-blue-300 dark:border-blue-700 -translate-y-1" : "border-slate-200 dark:border-slate-800"
+                  }`}
               >
-                {/* Gradient Background on Hover */}
-                <div
-                  className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
-                />
-
                 {/* Icon */}
-                <motion.div
-                  animate={{
-                    rotate: hoveredIndex === index ? 360 : 0,
-                  }}
-                  transition={{ duration: 0.6 }}
-                  className={`inline-flex p-4 rounded-2xl ${feature.bgColor} mb-6`}
+                <div
+                  className={`inline-flex p-3 rounded-xl mb-6 ${feature.bg} ${feature.color} ring-1 ring-inset ${feature.border}`}
                 >
-                  <feature.icon className={`h-8 w-8 bg-gradient-to-br ${feature.color} bg-clip-text text-transparent`} strokeWidth={2} />
-                </motion.div>
+                  <feature.icon className="h-6 w-6" strokeWidth={2} />
+                </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold mb-3 dark:text-white">{feature.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                   {feature.description}
                 </p>
-
-                {/* Hover Arrow */}
-                <motion.div
-                  initial={{ x: -10, opacity: 0 }}
-                  animate={{
-                    x: hoveredIndex === index ? 0 : -10,
-                    opacity: hoveredIndex === index ? 1 : 0,
-                  }}
-                  className="absolute bottom-8 right-8"
-                >
-                  <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${feature.color} flex items-center justify-center`}>
-                    <svg
-                      className="w-5 h-5 text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      />
-                    </svg>
-                  </div>
-                </motion.div>
               </div>
             </motion.div>
           ))}

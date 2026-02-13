@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { AlertCircle, ArrowRight, Camera, MapPin } from "lucide-react";
+import { AlertCircle, ArrowRight, ShieldCheck, MapPin, Users } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { rafThrottle } from "@/lib/performance";
@@ -34,198 +34,145 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
-      {/* Animated Background */}
-      <div className="absolute inset-0 opacity-30">
-        <div
-          className="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full filter blur-3xl animate-pulse"
-          style={{
-            transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`,
-            willChange: 'transform',
-          }}
-        />
-        <div
-          className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl animate-pulse"
-          style={{
-            transform: `translate(${mousePosition.x * -0.02}px, ${mousePosition.y * -0.02}px)`,
-            willChange: 'transform',
-          }}
-        />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-gray-950">
+      {/* Sophisticated Background Pattern */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-blue-400 opacity-20 blur-[100px] dark:bg-blue-900"></div>
+        <div className="absolute right-0 bottom-0 -z-10 h-[400px] w-[400px] rounded-full bg-cyan-400 opacity-20 blur-[120px] dark:bg-cyan-900"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-white space-y-8"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center lg:text-left space-y-8"
           >
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-block px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 backdrop-blur-md rounded-full border border-cyan-400/30"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800"
             >
-              <p className="text-sm font-medium">✨ Coming Soon - Join the Movement</p>
+              <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+              <p className="text-sm font-semibold text-blue-700 dark:text-blue-300 tracking-wide uppercase">
+                Empowering Communities
+              </p>
             </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight"
-            >
-              CIVIC
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-                VIGILANCE
-              </span>
-            </motion.h1>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white leading-[1.1]">
+              Civic
+              <span className="block gradient-text">Vigilance</span>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-2xl sm:text-3xl font-semibold text-cyan-300"
-            >
-              The People&apos;s Voice
-            </motion.p>
+            <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 font-medium max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              The People&apos;s Voice. <span className="text-gray-400 dark:text-gray-500">|</span> <span className="text-blue-600 dark:text-blue-400">Accountability</span> starts with you.
+            </p>
 
-            <motion.p
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              Join a network of engaged citizens transforming neighborhoods through transparency and action. Report issues, track resolutions, and build a safer tomorrow—together.
+            </p>
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-lg sm:text-xl text-gray-300 max-w-xl leading-relaxed"
-            >
-              Every voice matters. Every action counts. Be the change your community deserves. 
-              Together, we can transform our neighborhoods by staying vigilant, speaking up, and 
-              holding ourselves accountable. Your civic duty starts here—report issues, inspire 
-              action, and build a safer tomorrow for everyone.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <Button
-                onClick={() => scrollToSection("features")}
+                onClick={() => scrollToSection("report-demo")}
                 size="lg"
-                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold px-8 py-6 text-lg rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-1 transition-all duration-300"
               >
-                <Camera className="mr-2 h-5 w-5" />
-                Discover Features
+                Start Reporting
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 onClick={() => scrollToSection("about")}
                 size="lg"
                 variant="outline"
-                className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-md font-semibold px-8 py-6 text-lg rounded-full shadow-xl transform hover:scale-105 transition-all duration-300"
+                className="border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 font-semibold px-8 py-6 text-lg rounded-xl"
               >
-                Learn More
+                How It Works
               </Button>
             </motion.div>
 
-            {/* Quick Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="grid grid-cols-3 gap-4 pt-8"
-            >
-              {[
-                { value: "10K+", label: "Reports" },
-                { value: "85%", label: "Resolved" },
-                { value: "50+", label: "Cities" },
-              ].map((stat, idx) => (
-                <div key={idx} className="text-center">
-                  <div className="text-3xl font-bold text-cyan-400">{stat.value}</div>
-                  <div className="text-sm text-gray-400">{stat.label}</div>
-                </div>
-              ))}
-            </motion.div>
+            {/* Trust Indicators */}
+            <div className="pt-8 flex items-center justify-center lg:justify-start gap-8 text-sm font-medium text-gray-500 dark:text-gray-400">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-green-500" />
+                <span>Verified Reports</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Users className="w-5 h-5 text-blue-500" />
+                <span>Active Community</span>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Right Content - Community Image */}
+          {/* Right Content - Modern Dashboard/Map Visualization */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative flex items-center justify-center"
+            className="relative"
           >
-            <div className="relative w-full max-w-lg">
-              {/* Animated rings */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full border-4 border-cyan-500/30 scale-110"
-              />
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full border-4 border-blue-500/30 scale-125"
-              />
+            <div className="relative z-10 w-full max-w-lg mx-auto">
+              {/* Main Image Container */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+                <Image
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/2dde8b25-27cc-4a13-a1fa-db0708eb2ddc/generated_images/abstract-geometric-illustration-of-diver-0ca9fadb-20251031005937.jpg"
+                  alt="Civic Engagement Dashboard"
+                  width={600}
+                  height={600}
+                  className="w-full h-auto object-cover opacity-90 hover:scale-105 transition-transform duration-700"
+                  priority
+                />
 
-              {/* Community Image */}
-              <motion.div
-                className="relative z-10 float-animation"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <div className="glass-effect rounded-3xl p-8 shadow-2xl pulse-glow">
-                  <Image
-                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/2dde8b25-27cc-4a13-a1fa-db0708eb2ddc/generated_images/abstract-geometric-illustration-of-diver-0ca9fadb-20251031005937.jpg"
-                    alt="Community Engagement - Diverse citizens working together to improve their community"
-                    width={500}
-                    height={500}
-                    className="w-full h-auto rounded-2xl"
-                    priority
-                    quality={85}
-                    placeholder="blur"
-                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                  />
-                </div>
-              </motion.div>
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
-              {/* Floating Icons */}
-              <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -top-8 -right-8 bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 shadow-lg"
-              >
-                <AlertCircle className="h-8 w-8 text-yellow-400" />
-              </motion.div>
-              <motion.div
-                animate={{ y: [0, 20, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -bottom-8 -left-8 bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 shadow-lg"
-              >
-                <MapPin className="h-8 w-8 text-green-400" />
-              </motion.div>
+                {/* Floating UI Elements */}
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute bottom-8 left-8 right-8 glass-effect rounded-xl p-4 border-l-4 border-blue-500"
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-white font-semibold text-sm">Latest Activity</span>
+                    <span className="text-blue-200 text-xs">Just now</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300">
+                      <MapPin size={16} />
+                    </div>
+                    <div>
+                      <div className="text-white text-sm font-medium">Pothole Reported</div>
+                      <div className="text-blue-200 text-xs">Main St. & 4th Ave</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  className="absolute top-8 right-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-3 flex items-center gap-3 max-w-[180px]"
+                >
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-xs font-semibold text-gray-700 dark:text-gray-200">System Operational</span>
+                </motion.div>
+              </div>
+
+              {/* Decorative Elements */}
+              <div className="absolute -top-10 -right-10 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl dark:bg-blue-500/20" />
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl dark:bg-cyan-500/20" />
             </div>
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2"
-        >
-          <div className="w-1 h-2 bg-white rounded-full" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }
