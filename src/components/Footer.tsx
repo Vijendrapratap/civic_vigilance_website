@@ -1,40 +1,36 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Twitter, Linkedin, Mail, Heart } from "lucide-react";
+import { Github, Mail, Heart } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/Vijendrapratap/Civic-Vigilance", label: "GitHub" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
   { icon: Mail, href: "mailto:contact@civicvigilance.com", label: "Email" },
 ];
 
 const footerLinks = [
   {
-    title: "Product",
+    title: "Platform",
     links: [
       { name: "Features", href: "#features" },
       { name: "How it Works", href: "#about" },
+      { name: "Civic Duty", href: "#civic-duty" },
+    ],
+  },
+  {
+    title: "Action",
+    links: [
       { name: "Report Issue", href: "#report-demo" },
+      { name: "Live Stats", href: "#report-demo" },
     ],
   },
   {
-    title: "Resources",
+    title: "Legal & Contact",
     links: [
-      { name: "Documentation", href: "#" },
-      { name: "API", href: "#" },
-      { name: "Community", href: "#" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { name: "About Us", href: "#about" },
-      { name: "Contact", href: "#" },
       { name: "Privacy Policy", href: "/privacy-policy" },
+      { name: "Email Us", href: "mailto:contact@civicvigilance.com" },
     ],
   },
 ];
