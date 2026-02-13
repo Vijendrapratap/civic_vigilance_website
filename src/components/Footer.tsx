@@ -33,7 +33,7 @@ const footerLinks = [
     links: [
       { name: "About Us", href: "#about" },
       { name: "Contact", href: "#" },
-      { name: "Privacy Policy", href: "#" },
+      { name: "Privacy Policy", href: "/privacy-policy" },
     ],
   },
 ];
