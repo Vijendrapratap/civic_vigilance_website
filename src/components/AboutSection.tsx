@@ -47,15 +47,15 @@ export default function AboutSection() {
             Our <span className="gradient-text">Mission</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-6">
-            Civic Vigilance empowers citizens to be the eyes and ears of their communities. 
-            We bridge the gap between citizens and authorities, creating transparency and 
+            Civic Vigilance empowers citizens to be the eyes and ears of their communities.
+            We bridge the gap between citizens and authorities, creating transparency and
             accountability in addressing societal issues.
           </p>
           <p className="text-lg text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            <span className="font-semibold text-purple-600 dark:text-purple-400">Your civic responsibility is not just 
-            a duty—it's the foundation of a thriving, engaged democracy</span> where every voice shapes 
-            our collective future. When citizens actively participate in maintaining and improving their 
-            communities, we create a ripple effect of positive change that transforms neighborhoods, 
+            <span className="font-semibold text-blue-600 dark:text-blue-400">Your civic responsibility is not just
+              a duty—it's the foundation of a thriving, engaged democracy</span> where every voice shapes
+            our collective future. When citizens actively participate in maintaining and improving their
+            communities, we create a ripple effect of positive change that transforms neighborhoods,
             cities, and ultimately, our nation.
           </p>
         </motion.div>
@@ -69,14 +69,14 @@ export default function AboutSection() {
         >
           <h3 className="text-2xl font-bold mb-4 text-center dark:text-white">Breaking the Silence</h3>
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-            For too long, citizens have felt powerless when facing civic issues. Traditional complaint 
-            systems are fragmented, unresponsive, and lack transparency. Reports disappear into black 
+            For too long, citizens have felt powerless when facing civic issues. Traditional complaint
+            systems are fragmented, unresponsive, and lack transparency. Reports disappear into black
             holes, and communities lose faith in the system.
           </p>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
-            <span className="text-cyan-600 dark:text-cyan-400">Civic Vigilance changes this narrative.</span> We 
-            create a direct line between concerned citizens and responsive authorities, ensuring every 
-            voice is heard, every issue is tracked, and every resolution is celebrated. This isn't just 
+            <span className="text-cyan-600 dark:text-cyan-400">Civic Vigilance changes this narrative.</span> We
+            create a direct line between concerned citizens and responsive authorities, ensuring every
+            voice is heard, every issue is tracked, and every resolution is celebrated. This isn't just
             an app—it's a movement toward civic empowerment.
           </p>
         </motion.div>
@@ -104,12 +104,12 @@ export default function AboutSection() {
               >
                 {/* Connection Line */}
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-20 left-full w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 -z-10" />
+                  <div className="hidden md:block absolute top-20 left-full w-full h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 -z-10" />
                 )}
 
                 <div className="glass-effect rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 group">
                   {/* Number Badge */}
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 text-white text-2xl font-bold mb-4 group-hover:scale-110 transition-transform">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 text-white text-2xl font-bold mb-4 group-hover:scale-110 transition-transform">
                     {step.number}
                   </div>
 

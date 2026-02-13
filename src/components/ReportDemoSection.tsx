@@ -69,8 +69,8 @@ export default function ReportDemoSection() {
               icon: Users,
               value: count3.toLocaleString(),
               label: "Active Citizens",
-              color: "text-purple-500",
-              bgColor: "bg-purple-50 dark:bg-purple-900/20",
+              color: "text-blue-500",
+              bgColor: "bg-blue-50 dark:bg-blue-900/20",
             },
           ].map((stat, index) => (
             <motion.div
