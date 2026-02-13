@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Github, Twitter, Linkedin, Mail, Heart } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
 
 const socialLinks = [
@@ -112,12 +113,12 @@ export default function Footer() {
               <ul className="space-y-2">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-gray-400 hover:text-cyan-300 transition-colors duration-200 inline-block hover:translate-x-1 transform"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
