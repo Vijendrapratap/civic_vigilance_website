@@ -35,13 +35,13 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // Ignore ESLint during builds for faster deployment
   },
-  turbopack: {
-    rules: {
-      "*.{jsx,tsx}": {
-        loaders: [LOADER]
-      }
-    }
-  }
+  // turbopack: {
+  //   rules: {
+  //     "*.{jsx,tsx}": {
+  //       loaders: [LOADER]
+  //     }
+  //   }
+  // }
 };
 
 export default nextConfig;
