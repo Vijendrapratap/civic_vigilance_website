@@ -7,6 +7,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { rafThrottle } from "@/lib/performance";
 import ThemeToggle from "@/components/ThemeToggle";
+import { usePathname, useRouter } from "next/navigation";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -21,27 +22,31 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const throttledHandleScrollRef = useRef<(() => void) | null>(null);
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleScroll = useCallback(() => {
     setIsScrolled(window.scrollY > 50);
 
-    // Track active section
-    const sections = navLinks.map(link => link.href.replace("#", ""));
-    const scrollPosition = window.scrollY + 100;
+    // Track active section only on active page
+    if (pathname === "/") {
+      const sections = navLinks.map(link => link.href.replace("#", ""));
+      const scrollPosition = window.scrollY + 100;
 
-    for (const section of sections) {
-      const element = document.getElementById(section);
-      if (element) {
-        const offsetTop = element.offsetTop;
-        const offsetBottom = offsetTop + element.offsetHeight;
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetBottom = offsetTop + element.offsetHeight;
 
-        if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-          setActiveSection(section);
-          break;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            setActiveSection(section);
+            break;
+          }
         }
       }
     }
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     // Create throttled version once
@@ -62,13 +67,19 @@ export default function Navigation() {
   }, [handleScroll]);
 
   const scrollToSection = (href: string) => {
+    setIsMobileMenuOpen(false);
+
+    if (pathname !== "/") {
+      router.push(`/${href}`);
+      return;
+    }
+
     const id = href.replace("#", "");
     if (id === "home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     }
-    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -78,8 +89,8 @@ export default function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-            ? "glass-effect shadow-md py-3 bg-white/80 dark:bg-slate-900/80"
-            : "bg-transparent py-6"
+          ? "glass-effect shadow-md py-3 bg-white/80 dark:bg-slate-900/80"
+          : "bg-transparent py-6"
           }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

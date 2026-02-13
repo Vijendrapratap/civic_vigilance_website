@@ -14,16 +14,16 @@ const footerLinks = [
   {
     title: "Platform",
     links: [
-      { name: "Features", href: "#features" },
-      { name: "How it Works", href: "#about" },
-      { name: "Civic Duty", href: "#civic-duty" },
+      { name: "Features", href: "/#features" },
+      { name: "How it Works", href: "/#about" },
+      { name: "Civic Duty", href: "/#civic-duty" },
     ],
   },
   {
     title: "Action",
     links: [
-      { name: "Report Issue", href: "#report-demo" },
-      { name: "Live Stats", href: "#report-demo" },
+      { name: "Report Issue", href: "/#report-demo" },
+      { name: "Live Stats", href: "/#report-demo" },
     ],
   },
   {
